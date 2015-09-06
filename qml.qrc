@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>circle.qml</file>
+        <file>PushButton.qml</file>
+        <file>rectangle.qml</file>
+        <file>lines.qml</file>
+        <file>checkerboard.qml</file>
+        <file>Cell.qml</file>
+        <file>Info.qml</file>
+    </qresource>
+</RCC>
