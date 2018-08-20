@@ -5,8 +5,8 @@ Rectangle {
     id: button
 
     // These properties act as constants, useable outside this QML file
-    property int buttonHeight: 45
-    property int buttonWidth: 150
+    property int buttonHeight: 75
+    property int buttonWidth: 200
 
     // Attaches to the Text element's text content
     property string label

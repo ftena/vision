@@ -29,6 +29,11 @@ ApplicationWindow {
       * different figures.
       */
     property double sizeFactor: 0.6
+
+    /* Maximum and minimum width allowed */
+    property int maximumFigureWidth: 600
+    property int minimumFigureWidth: 50;
+
     /*
       * It stores the medium size for the different figures.
       */
@@ -51,9 +56,19 @@ ApplicationWindow {
 
     function resize(item, action) {
         if (action === 0)
+        {
+            if ( item.width + 50 <= maximumFigureWidth )
+            {
             item.width = item.width + 50;
+            }
+        }
         else
-            item.width = item.width - 50;
+        {
+            if ( item.width - 50 >= minimumFigureWidth )
+            {
+                item.width = item.width - 50;
+            }
+        }
     }
 
     /*
@@ -83,14 +98,14 @@ ApplicationWindow {
                 onTriggered: {
 
                     var component = Qt.createComponent("Info.qml");
-                    if (component.status == Component.Ready) {
+                    if (component.status === Component.Ready) {
                         /*
                         * The created object will become a child of the appWindow
                         * item in main.qml.
                         */
                         var object = component.createObject(mainWindow);
                         console.log("Success loading component");
-                    } else if (component.status == Component.Error) {
+                    } else if (component.status === Component.Error) {
                         // Error Handling
                         console.log("Error loading component:", component.errorString());
                     }
@@ -102,15 +117,16 @@ ApplicationWindow {
 
     ColumnLayout{
         id: contentColumn
-        spacing: 0
-        anchors.fill: parent
+        width: parent.width
+        Layout.preferredWidth: parent.width
+        spacing: 5
 
         RowLayout {
             id: figuresContainer
             /* We need top alignment in order to keep the row
               below the column */
             Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
-            spacing: 5
+            spacing: 10
 
             PushButton {
                 id: circleButton
@@ -161,9 +177,7 @@ ApplicationWindow {
         RowLayout {
             id: resizeButtons
             Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
-            anchors.top: figuresContainer.bottom
-            spacing: 10
-            anchors.margins: 5
+            spacing: 10        
 
             PushButton {
                 id: increaseSizeButton
@@ -189,10 +203,8 @@ ApplicationWindow {
 
         RowLayout {
             id: colorPicker
-            Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
-            anchors.top: resizeButtons.bottom
-            spacing: 7
-            anchors.margins: 5
+            Layout.alignment: Qt.AlignTop | Qt.AlignHCenter        
+            spacing: 7        
 
             Cell { cellColor: "red"; onClicked: figureLoader.item.color = cellColor }
             Cell { cellColor: "green"; onClicked: figureLoader.item.color = cellColor }
@@ -208,8 +220,8 @@ ApplicationWindow {
           */
         Loader {
             id: figureLoader
-            anchors.margins: 5
-            anchors.top: colorPicker.bottom
+            x: 0
+            y: 0
         }
     }
 }
