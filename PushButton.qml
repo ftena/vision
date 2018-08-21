@@ -1,12 +1,12 @@
 import QtQuick 2.3
+import QtQuick.Layouts 1.3
 
 Rectangle {
     // Identifier of the item
     id: button
 
     // These properties act as constants, useable outside this QML file
-    property int buttonHeight: 75
-    property int buttonWidth: 200
+    property int buttonHeight: 65
 
     // Attaches to the Text element's text content
     property string label
@@ -25,8 +25,8 @@ Rectangle {
     antialiasing: true
     border.width: 2
     border.color: borderColor
-    width: buttonWidth
     height: buttonHeight
+    Layout.fillWidth: true
 
     Text {
         id: buttonLabel

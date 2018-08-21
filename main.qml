@@ -126,6 +126,8 @@ ApplicationWindow {
             /* We need top alignment in order to keep the row
               below the column */
             Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
+            Layout.leftMargin: 20
+            Layout.rightMargin: 20
             spacing: 10
 
             PushButton {
@@ -177,7 +179,9 @@ ApplicationWindow {
         RowLayout {
             id: resizeButtons
             Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
-            spacing: 10        
+            Layout.leftMargin: 150
+            Layout.rightMargin: 150
+            spacing: 100
 
             PushButton {
                 id: increaseSizeButton
