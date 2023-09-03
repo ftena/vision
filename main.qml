@@ -18,7 +18,7 @@
 */
 
 import QtQuick 2.3
-import QtQuick.Controls 1.1
+import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.1
 
 ApplicationWindow {
@@ -210,7 +210,7 @@ ApplicationWindow {
             Layout.alignment: Qt.AlignTop | Qt.AlignHCenter        
             spacing: 7        
 
-            Cell { cellColor: "red"; onClicked: figureLoader.item.color = cellColor }
+            Cell { cellColor: "red"; onClicked: figureLoader.item.color = cellColor; }
             Cell { cellColor: "green"; onClicked: figureLoader.item.color = cellColor }
             Cell { cellColor: "blue"; onClicked: figureLoader.item.color = cellColor }
             Cell { cellColor: "yellow"; onClicked: figureLoader.item.color = cellColor }
