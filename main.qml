@@ -59,7 +59,7 @@ ApplicationWindow {
         {
             if ( item.width + 50 <= maximumFigureWidth )
             {
-            item.width = item.width + 50;
+                item.width = item.width + 50;
             }
         }
         else
@@ -207,18 +207,33 @@ ApplicationWindow {
 
         RowLayout {
             id: colorPicker
-            Layout.alignment: Qt.AlignTop | Qt.AlignHCenter        
-            spacing: 7        
+            Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
+            spacing: 7
 
             Cell { cellColor: "red"; onClicked: function(cellColor) {
-            figureLoader.item.color = cellColor;
-             }
+                figureLoader.item.color = cellColor;
             }
-            Cell { cellColor: "green"; onClicked: figureLoader.item.color = cellColor }
-            Cell { cellColor: "blue"; onClicked: figureLoader.item.color = cellColor }
-            Cell { cellColor: "yellow"; onClicked: figureLoader.item.color = cellColor }
-            Cell { cellColor: "steelblue"; onClicked: figureLoader.item.color = cellColor }
-            Cell { cellColor: "black"; onClicked: figureLoader.item.color = cellColor }
+            }
+            Cell { cellColor: "green"; onClicked: function(cellColor) {
+                figureLoader.item.color = cellColor;
+            }
+            }
+            Cell { cellColor: "blue"; onClicked: function(cellColor) {
+                figureLoader.item.color = cellColor;
+            }
+            }
+            Cell { cellColor: "yellow"; onClicked: function(cellColor) {
+                figureLoader.item.color = cellColor;
+            }
+            }
+            Cell { cellColor: "steelblue"; onClicked: function(cellColor) {
+                figureLoader.item.color = cellColor;
+            }
+            }
+            Cell { cellColor: "black"; onClicked: function(cellColor) {
+                figureLoader.item.color = cellColor;
+            }
+            }
         }
 
         /*
